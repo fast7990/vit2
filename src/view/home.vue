@@ -1,0 +1,6 @@
+<template>
+  <div>aaaa</div>
+</template>
+<script setup>
+const a = 1;
+</script>
