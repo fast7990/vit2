@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { ElLoading, ElMessage } from 'element-plus';
 // 请求域名-本地请求
-const http = 'http://poetry.apiopen.top';
+const http = 'https://api.apiopen.top';
 // 创建axios实例
 const instance = axios.create({
     baseURL: http,
@@ -33,7 +33,6 @@ const hideLoading = () => {
 //请求拦截
 instance.interceptors.request.use((config) => {
     showLoading();
-    const token;
     if (config.method === 'POST') {
         config.data = JSON.stringify(config.data)
     }
@@ -54,16 +53,5 @@ instance.interceptors.response.use((response) => {
     }
     return Promise.reject(error)
 })
-// post请求
-const Post = ({ url = '', data = {} }) => {
-    let theUrl = getUrl(url);
-    return axios.post(theUrl, data)
-        .then((response) => {
-            if (response) {
-                return response;
-            } else {
-                return Promise.reject();
-            }
-        })
-};
+
 export default instance

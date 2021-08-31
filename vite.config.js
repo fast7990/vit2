@@ -10,7 +10,19 @@ function pathResolve(dir) {
 export default defineConfig({
   plugins: [vue()],
   root,
+  server: {
+    port: 8081,
+    // proxy: {
+    //     '/api': {
+    //         target: '',
+    //         changeOrigin: true
+    //     }
+    // },
+    // https:true,//开启http2
+    open: true
+  },
   resolve: {
+    extensions: ['.js', '.vue', '.json'],
     alias: [{
       find: "@",
       replacement: pathResolve('src')
